@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "EduConnect - Wold's Best Learning Platform",
+  title: "Bright Courses - Wold's Best Learning Platform",
   description: "Explore || Learn || Build || Share",
 };
 
