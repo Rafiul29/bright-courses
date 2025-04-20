@@ -3,7 +3,6 @@
 import { create } from "@/queries/modules";
 import { Course } from "@/models/course-model";
 import { Module } from "@/models/module.model";
-import { ModuleTitleForm } from "@/lms-template/app/dashboard/courses/[courseId]/modules/[moduleId]/_components/module-title-form";
 import mongoose from "mongoose";
 
 export async function createModule(data) {
@@ -52,10 +51,10 @@ export async function updateModule(moduleId, dataToUpdate) {
 
 export async function changeModulePublishedState(moduleId) {
   try {
-    const module = await Module.findById(moduleId);
+    const modules = await Module.findById(moduleId);
     const res = await Module.findByIdAndUpdate(
       moduleId,
-      { active: !module?.active },
+      { active: !modules?.active },
       { lean: true }
     );
     return res?.active; 
@@ -68,7 +67,7 @@ export async function deleteModule(moduleId, courseId) {
   try {
     const course = await Course.findById(courseId);
     course.modules.pull(new mongoose.Types.ObjectId(moduleId));
-    const module = await Module.findByIdAndDelete(moduleId);
+    const modules = await Module.findByIdAndDelete(moduleId);
     course.save();
     
   } catch (error) {

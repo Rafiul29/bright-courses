@@ -1,5 +1,5 @@
 import { MessageSquare, Presentation, Star, UsersRound } from "lucide-react";
-
+import Image from "next/image";
 const InstructorInfo = ({ instructor, getCourseDetailsByInstructorData }) => {
   const name = `${instructor?.firstName} ${instructor?.lastName}`;
   return (
@@ -7,7 +7,7 @@ const InstructorInfo = ({ instructor, getCourseDetailsByInstructorData }) => {
       <div className="bg-white rounded-2xl p-6 shadow">
         <div className="mb-6">
           <div className="w-36 h-36 rounded-full  mb-5 mx-auto overflow-hidden">
-            <img
+            <Image
               src={instructor.profilePicture}
               alt=""
               className="w-full h-full object-cover rounded"

@@ -41,7 +41,7 @@ export async function changeCoursePublishedState(courseId) {
 
 export async function deleteCourse(courseId) {
   try {
-    const module = await Course.findByIdAndDelete(courseId);
+    const modules = await Course.findByIdAndDelete(courseId);
   } catch (error) {
     throw new Error(error);
   }

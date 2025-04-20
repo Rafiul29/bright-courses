@@ -60,7 +60,7 @@ export async function changeLessonPublishedState(lessonId) {
 
 export async function deleteLesson(lessonId, moduleId) {
   try {
-    const module = await Module.findById(moduleId);
+    const modules = await Module.findById(moduleId);
     module.lessonIds.pull(new mongoose.Types.ObjectId(lessonId));
     const lesson = await Lesson.findByIdAndDelete(lessonId);
     module.save();
