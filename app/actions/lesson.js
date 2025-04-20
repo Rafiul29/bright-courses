@@ -14,9 +14,9 @@ export async function createLesson(data) {
 
     const createdLesson = await create({ title, slug, order });
     console.log(createdLesson);
-    const module = await Module.findById(moduleId);
-    module.lessonIds.push(createdLesson?._id);
-    module.save();
+    const modules = await Module.findById(moduleId);
+    modules.lessonIds.push(createdLesson?._id);
+    modules.save();
     return createdLesson;
   } catch (error) {
     console.log(error);
