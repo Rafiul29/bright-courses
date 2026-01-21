@@ -13,7 +13,7 @@ const DashboardPage = async () => {
   }
 
   const instructor = await getUserByEmail(session?.user.email);
-  console.log(instructor);
+  
   if (instructor?.role !== "instructor") {
     return redirect("/login");
   }

@@ -16,7 +16,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 // import {signIn} from 'next-auth/react'
 
-
 export function LoginForm() {
   const [error, setError] = useState("");
   const router = useRouter();

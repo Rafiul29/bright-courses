@@ -6,7 +6,7 @@ const LoginPage = () => {
     <div className="w-full flex-col h-screen flex items-center justify-center">
       <div className="container">
         <LoginForm />
-        <SocialLogins/>
+        <SocialLogins />
       </div>
     </div>
   );

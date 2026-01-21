@@ -39,7 +39,6 @@ export const ImageForm = ({ initialData, courseId }) => {
     if(file){
       async function uploadFile(){
         try{
-          console.log(file[0])
           const formData = new FormData()
           formData.append('files',file[0])
           formData.append('destination','./public/assets/images/courses')
@@ -49,7 +48,6 @@ export const ImageForm = ({ initialData, courseId }) => {
             body:formData
           })
           const result = await response.text();
-          console.log(result)
           if(response.status==200){
             initialData.imageUrl=`/assets/images/courses/${file[0].path}`
             toast.success(result)
