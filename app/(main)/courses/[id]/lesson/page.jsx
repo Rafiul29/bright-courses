@@ -23,7 +23,7 @@ const Course = async ({ params: { id }, searchParams: { name, module } }) => {
 
   const lessonToPlay = name ? await getLessonBySlug(name) : defaultLesson;
 
-  const defaultModule = module ?? allModules[0].slug;
+  const defaultModule = module ?? allModules[0]?.slug;
 
   return (
     <div>

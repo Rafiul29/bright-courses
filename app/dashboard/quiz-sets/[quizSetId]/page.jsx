@@ -16,8 +16,6 @@ import { Circle } from "lucide-react";
 import { getQuizSetById } from "@/queries/quizzes";
 
 const EditQuizSet = async ({ params: { quizSetId } }) => {
-
-
   const quizSet = await getQuizSetById(quizSetId);
   const quizzes = quizSet.quizIds.map((quiz) => {
     return {
@@ -31,6 +29,8 @@ const EditQuizSet = async ({ params: { quizSetId } }) => {
       }),
     };
   });
+
+  const deleteQuiz = () => {};
 
   return (
     <>
@@ -65,7 +65,7 @@ const EditQuizSet = async ({ params: { quizSetId } }) => {
                         return (
                           <div
                             className={cn(
-                              "py-1.5 rounded-sm  text-sm flex items-center gap-1 text-gray-600"
+                              "py-1.5 rounded-sm  text-sm flex items-center gap-1 text-gray-600",
                             )}
                             key={option.label}
                           >

@@ -39,3 +39,30 @@ export async function createQuiz(quizData) {
     throw new Error(e);
   }
 }
+
+
+export async function editQuiz(quizId, quizData) {
+  try {
+    const updatedQuiz = await Quiz.findByIdAndUpdate(
+      quizId,
+      quizData,
+      { new: true } // returns the updated document
+    ).lean();
+
+    if (!updatedQuiz) throw new Error("Quiz not found");
+    return updatedQuiz;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+
+export async function deleteQuiz(quizId) {
+  try {
+    const deletedQuiz = await Quiz.findByIdAndDelete(quizId);
+    if (!deletedQuiz) throw new Error("Quiz not found");
+    return deletedQuiz._id.toString();
+  } catch (error) {
+    throw new Error(error);
+  }
+}
